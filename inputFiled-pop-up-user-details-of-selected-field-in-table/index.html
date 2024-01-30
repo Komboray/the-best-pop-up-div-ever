@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Style for the popup div */
+        #popupDiv {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+        }
+    </style>
+    <title>Popup Example</title>
+</head>
+<body>
+
+<!-- Button to trigger the popup -->
+<button onclick="togglePopup()">Show Popup</button>
+
+<!-- Hidden popup div -->
+<div id="popupDiv">
+    <p>This is a popup content.</p>
+    <!-- Input field to display the name -->
+    <label for="nameInput">Name:</label>
+    <input type="text" id="nameInput" readonly>
+    <button onclick="closePopup()">Close</button>
+</div>
+
+<script>
+    // Function to show/hide the popup
+    function togglePopup() {
+        var popupDiv = document.getElementById('popupDiv');
+
+        var popupDiv = document.getElementById('popupDiv');
+        var nameInput = document.getElementById('nameInput');
+
+        // Get the name from the PHP variable (replace this with actual PHP value)
+        var nameFromPHP = "<?=$row['name']?>";
+
+        // Set the value of the input field
+        nameInput.value = nameFromPHP;
+
+        popupDiv.style.display = (popupDiv.style.display === 'none' || popupDiv.style.display === '') ? 'block' : 'none';
+    }
+
+    // Function to close the popup
+    function closePopup() {
+        var popupDiv = document.getElementById('popupDiv');
+        popupDiv.style.display = 'none';
+    }
+</script>
+
+</body>
+</html>
